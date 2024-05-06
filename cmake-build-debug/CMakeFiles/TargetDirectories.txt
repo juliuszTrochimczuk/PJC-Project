@@ -1,0 +1,3 @@
+C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/CMakeFiles/PJC_Project.dir
+C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
