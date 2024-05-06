@@ -17,5 +17,16 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(fmt)
 FetchContent_MakeAvailable(SFML)
-add_executable(PJC_Project src/main.cpp)
+add_executable(PJC_Project src/main.cpp
+        src/GameObjects/Player/Player.h
+        src/GameObjects/Player/Player.cpp
+        src/GameObjects/Character.h
+        src/GameObjects/Character.cpp
+        src/GameController/MathMethods.h
+        src/GameController/MathMethods.h
+        src/GameController/MathMethods.cpp
+        src/GameController/GameController.h
+        src/GameController/GameController.h
+        src/GameController/GameController.cpp
+)
 target_link_libraries(PJC_Project fmt sfml-graphics)
