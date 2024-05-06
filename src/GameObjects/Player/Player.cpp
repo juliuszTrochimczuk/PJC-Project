@@ -1,6 +1,5 @@
 #include "Player.h"
 #include <SFML/Graphics.hpp>
-#include "../../GameController/MathMethods.h"
 
 Player::Player() {
     shape = sf::CircleShape(50);

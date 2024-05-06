@@ -1,10 +1,12 @@
 #include <fmt/core.h>
 #include <SFML/Graphics.hpp>
 #include "GameObjects/Player/Player.h"
+#include "GameController/GameController.h"
 
 int main() {
     auto window = sf::RenderWindow(sf::VideoMode(800, 600), "Killer Bean");
     auto player = Player();
+    fmt::println("{}", GameController::getIntance()->x);
     while (window.isOpen()) {
         auto event = sf::Event();
         while (window.pollEvent(event)) {
@@ -15,7 +17,6 @@ int main() {
             fmt::println("XDD");
         }
         window.clear(sf::Color::Black);
-        window.draw(player.getShape());
         window.display();
     }
 }

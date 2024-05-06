@@ -2,8 +2,7 @@
 #define PJC_PROJECT_PLAYER_H
 #include "SFML/Graphics.hpp"
 #include "../Character.h"
-
-
+#include "../../GameController/MathMethods.h"
 
 class Player : Character {
 private:

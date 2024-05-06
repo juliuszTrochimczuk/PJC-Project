@@ -1,7 +1,3 @@
-//
-// Created by Juliusz Trochimczuk on 06.05.2024.
-//
-
 #ifndef PJC_PROJECT_GAMECONTROLLER_H
 #define PJC_PROJECT_GAMECONTROLLER_H
 
@@ -10,9 +6,11 @@
 class GameController {
 private:
     static GameController* instance;
+    GameController() = default;
 public:
-    sf::RenderWindow& gameWindow;
-    GameController(sf::RenderWindow& window): gameWindow(window) { }
+    int x = 4;
+    sf::RenderWindow gameWindow;
+    static GameController* getIntance();
 };
 
 
