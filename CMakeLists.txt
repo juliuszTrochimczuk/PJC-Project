@@ -28,5 +28,6 @@ add_executable(PJC_Project src/main.cpp
         src/GameController/GameController.h
         src/GameController/GameController.h
         src/GameController/GameController.cpp
+        src/GameObjects/BasicEntity.h
 )
 target_link_libraries(PJC_Project fmt sfml-graphics)

@@ -8,9 +8,9 @@ private:
     static GameController* instance;
     GameController() = default;
 public:
-    int x = 4;
-    sf::RenderWindow gameWindow;
-    static GameController* getIntance();
+    sf::RenderWindow* gameWindow;
+    static GameController* getInstance();
+    void setGameWindow(sf::RenderWindow* gameWindow);
 };
 
 

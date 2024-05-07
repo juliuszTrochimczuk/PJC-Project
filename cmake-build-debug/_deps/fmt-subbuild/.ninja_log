@@ -1,0 +1,37 @@
+# ninja log v5
+5556	5795	7367816135354664	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-configure	28ec1b29bb56a8df
+0	63	7367775468012070	fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-mkdir	9ef915fccf73bfb0
+6047	6169	7367816139113921	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/fmt-subbuild/CMakeFiles/fmt-populate-complete	c82f48fdf6440aa
+64	19134	7367775658700461	fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-download	449e1cb8c39e30ec
+5879	5963	7367816137059110	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-install	b7ea5beb3db0ebc1
+0	63	7367775468012070	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-mkdir	9ef915fccf73bfb0
+2	5416	0	fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-update	be55409c07266d39
+5417	5555	7367816132930168	fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-patch	9867f9d61a65ee15
+64	19134	7367775658700461	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-download	449e1cb8c39e30ec
+2	5416	0	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-update	be55409c07266d39
+5417	5555	7367816132930168	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-patch	9867f9d61a65ee15
+5795	5879	7367816136221663	fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-build	992b8bc1661e24e2
+5556	5795	7367816135354664	fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-configure	28ec1b29bb56a8df
+5795	5879	7367816136221663	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-build	992b8bc1661e24e2
+6047	6169	7367816139113921	fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-done	c82f48fdf6440aa
+5879	5963	7367816137059110	fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-install	b7ea5beb3db0ebc1
+5963	6046	7367816137896863	fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-test	5b0421dbc9e9d807
+5963	6046	7367816137896863	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-test	5b0421dbc9e9d807
+6047	6169	7367816139113921	CMakeFiles/fmt-populate-complete	c82f48fdf6440aa
+6047	6169	7367816139113921	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-done	c82f48fdf6440aa
+2	3696	0	fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-update	be55409c07266d39
+2	3696	0	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-update	be55409c07266d39
+3696	3817	7367818205567115	fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-patch	9867f9d61a65ee15
+3696	3817	7367818205567115	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-patch	9867f9d61a65ee15
+3818	3932	7367818206743970	fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-configure	28ec1b29bb56a8df
+3818	3932	7367818206743970	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-configure	28ec1b29bb56a8df
+3932	4155	7367818208698740	fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-build	992b8bc1661e24e2
+3932	4155	7367818208698740	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-build	992b8bc1661e24e2
+4155	4338	7367818210743350	fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-install	b7ea5beb3db0ebc1
+4155	4338	7367818210743350	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-install	b7ea5beb3db0ebc1
+4339	4596	7367818213356705	fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-test	5b0421dbc9e9d807
+4339	4596	7367818213356705	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-test	5b0421dbc9e9d807
+4597	4683	7367818214283812	CMakeFiles/fmt-populate-complete	c82f48fdf6440aa
+4597	4683	7367818214283812	fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-done	c82f48fdf6440aa
+4597	4683	7367818214283812	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/fmt-subbuild/CMakeFiles/fmt-populate-complete	c82f48fdf6440aa
+4597	4683	7367818214283812	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-done	c82f48fdf6440aa

@@ -2,14 +2,12 @@
 #define PJC_PROJECT_CHARACTER_H
 
 #include <SFML/Graphics.hpp>
+#include "BasicEntity.h"
 
-class Character {
+class Character : public BasicEntity {
 protected:
-    sf::CircleShape shape;
-    int health;
-    float moveSpeed;
-public:
-    sf::CircleShape getShape();
+    int health{};
+    float moveSpeed{};
 };
 
 #endif //PJC_PROJECT_CHARACTER_H

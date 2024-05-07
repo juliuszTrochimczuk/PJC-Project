@@ -1,0 +1,37 @@
+# ninja log v5
+0	99	7367775703821900	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir	6693eaf8c893ea12
+100	121774	7367776920498906	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download	aa154ff6e16114bf
+0	99	7367775703821900	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir	6693eaf8c893ea12
+264	386	7367816151660327	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	4ce9c3842b5b8bac
+100	121774	7367776920498906	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download	aa154ff6e16114bf
+1	263	0	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	211f8a1c5c36ef2e
+682	753	7367816155350176	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	4464374234896b6d
+1	263	0	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	211f8a1c5c36ef2e
+264	386	7367816151660327	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	4ce9c3842b5b8bac
+386	515	7367816152966842	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	f0ed0bb460513ce9
+386	515	7367816152966842	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	f0ed0bb460513ce9
+516	571	7367816153525284	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	25d5a60a3bc458ee
+516	571	7367816153525284	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	25d5a60a3bc458ee
+571	624	7367816154053651	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	884f04efdce881d3
+571	624	7367816154053651	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	884f04efdce881d3
+624	682	7367816154642397	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	fcb270664b1d1926
+624	682	7367816154642397	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	fcb270664b1d1926
+682	753	7367816155350176	CMakeFiles/sfml-populate-complete	4464374234896b6d
+682	753	7367816155350176	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	4464374234896b6d
+682	753	7367816155350176	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/sfml-subbuild/CMakeFiles/sfml-populate-complete	4464374234896b6d
+1	209	0	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	211f8a1c5c36ef2e
+1	209	0	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	211f8a1c5c36ef2e
+209	263	7367818224048627	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	4ce9c3842b5b8bac
+209	263	7367818224048627	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	4ce9c3842b5b8bac
+263	314	7367818224568298	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	f0ed0bb460513ce9
+263	314	7367818224568298	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	f0ed0bb460513ce9
+315	370	7367818225116420	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	25d5a60a3bc458ee
+315	370	7367818225116420	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	25d5a60a3bc458ee
+370	434	7367818225734238	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	884f04efdce881d3
+370	434	7367818225734238	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	884f04efdce881d3
+434	492	7367818226333945	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	fcb270664b1d1926
+434	492	7367818226333945	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	fcb270664b1d1926
+492	570	7367818227110943	CMakeFiles/sfml-populate-complete	4464374234896b6d
+492	570	7367818227110943	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	4464374234896b6d
+492	570	7367818227110943	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/sfml-subbuild/CMakeFiles/sfml-populate-complete	4464374234896b6d
+492	570	7367818227110943	C:/Users/Juliusz Trochimczuk/PJC-Project/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	4464374234896b6d
