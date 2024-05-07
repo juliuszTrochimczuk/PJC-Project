@@ -1,12 +1,19 @@
 #include "Player.h"
+#include "../../GameController/GameController.h"
 #include <SFML/Graphics.hpp>
 #include <fmt/core.h>
-#include <fmt/ranges.h>
 
 Player::Player() {
-    shape = sf::CircleShape(50);
+    shape = sf::CircleShape(25);
+    auto originPoint = sf::Vector2<float>(1, 1);
+    originPoint *= shape.getRadius() / 2;
+    shape.setOrigin(originPoint);
+    auto spawnPosition = GameController::getInstance()->gameWindow->getSize();
+    spawnPosition.x = spawnPosition.x / 2 - shape.getOrigin().x;
+    spawnPosition.y = spawnPosition.y / 2 - shape.getOrigin().y;
+    shape.setPosition(spawnPosition.x, spawnPosition.y);
     health = 100;
-    moveSpeed = 1.5f;
+    moveSpeed = 4.5f;
 }
 
 sf::Vector2<float> Player::getInputVector() {
@@ -22,18 +29,17 @@ sf::Vector2<float> Player::getInputVector() {
 
 void Player::moveCharacter() {
     auto moveVector = getInputVector() * moveSpeed;
-    auto borderOfWorld = sf::Vector2<float>(720, 475);
+    auto borderOfWorld = sf::Vector2<float>(GameController::getInstance()->gameWindow->getSize());
+    auto safeArea = sf::Vector2<float>(100, 100);
+    borderOfWorld -= safeArea;
     auto pos = shape.getPosition();
-    if (pos.x < 0 and moveVector.x < 0) moveVector.x = 0;
-    else if (pos.x > borderOfWorld.x and moveVector.x > 1) moveVector.x = 0;
-    if (pos.y < 0 and moveVector.y < 0) moveVector.y = 0;
-    else if (pos.y > borderOfWorld.y and moveVector.y > 1) moveVector.y = 0;
+    if (pos.x < safeArea.x and moveVector.x < 0) moveVector.x = 0;
+    else if (pos.x > borderOfWorld.x and moveVector.x > 0) moveVector.x = 0;
+    if (pos.y < safeArea.y and moveVector.y < 0) moveVector.y = 0;
+    else if (pos.y > borderOfWorld.y and moveVector.y > 0) moveVector.y = 0;
     shape.move(moveVector);
 }
 
 void Player::Update() {
     moveCharacter();
-    auto pos = shape.getPosition();
-    fmt::println("{}", pos.x);
-    fmt::println("{}", pos.y);
 }

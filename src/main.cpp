@@ -4,11 +4,15 @@
 #include "GameController/GameController.h"
 
 int main() {
-    auto window = sf::RenderWindow(sf::VideoMode(800, 600), "Killer Bean");
+    auto window = sf::RenderWindow(sf::VideoMode(1920, 1001), "Killer Bean");
+    window.setFramerateLimit(60);
+    GameController::getInstance()->setGameWindow(&window);
     auto entitiesInGame = std::vector<BasicEntity*>();
     auto player = Player();
     entitiesInGame.push_back(&player);
-    GameController::getInstance()->setGameWindow(&window);
+    for (auto& entity : entitiesInGame) {
+        entity -> Start();
+    }
     while (window.isOpen()) {
         auto event = sf::Event();
         while (window.pollEvent(event)) {
@@ -21,8 +25,8 @@ int main() {
         }
         window.clear(sf::Color::Black);
         for (auto& entity : entitiesInGame) {
-            window.draw(entity->getShape());
             entity -> Update();
+            window.draw(entity->getShape());
         }
         window.display();
     }
