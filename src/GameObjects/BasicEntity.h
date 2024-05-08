@@ -2,14 +2,19 @@
 #define PJC_PROJECT_BASICENTITY_H
 
 #include <SFML/Graphics.hpp>
+#include <fmt/core.h>
 
 class BasicEntity {
+private:
+    bool didStart = false;
 public:
-    sf::CircleShape shape;
-public:
-    virtual void Start() { };
-    virtual void Update() { };
-    sf::CircleShape getShape() { return shape; }
+    int priority;
+    BasicEntity(int priority) {this->priority = priority; }
+    bool canDoStart() { return !didStart; }
+    virtual void start() {
+        this->didStart = true;
+    }
+    virtual void update() { }
 };
 
 #endif //PJC_PROJECT_BASICENTITY_H

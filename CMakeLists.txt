@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.27)
 project(PJC_Project)
+project(TestScript)
 
 set(CMAKE_CXX_STANDARD 20)
 set(BUILD_SHARED_LIBS FALSE)
@@ -18,16 +19,34 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(fmt)
 FetchContent_MakeAvailable(SFML)
 add_executable(PJC_Project src/main.cpp
-        src/GameObjects/Player/Player.h
-        src/GameObjects/Player/Player.cpp
-        src/GameObjects/Character.h
-        src/GameObjects/Character.cpp
-        src/GameController/MathMethods.h
-        src/GameController/MathMethods.h
-        src/GameController/MathMethods.cpp
-        src/GameController/GameController.h
-        src/GameController/GameController.h
-        src/GameController/GameController.cpp
+        src/GameObjects/Characters/Player/Player.h
+        src/GameObjects/Characters/Player/Player.cpp
+        src/GameObjects/Characters/Character.h
+        src/GameObjects/Characters/Character.cpp
+        src/GameControllers/MathMethods.h
+        src/GameControllers/MathMethods.h
+        src/GameControllers/MathMethods.cpp
+        src/GameControllers/GameController.h
+        src/GameControllers/GameController.h
+        src/GameControllers/GameController.cpp
         src/GameObjects/BasicEntity.h
+        src/GameControllers/TimeController.h
+        src/GameControllers/TimeController.cpp
+        src/GameObjects/VisualEntity.cpp
+        src/GameObjects/VisualEntity.h
+        src/GameObjects/Map/Map.cpp
+        src/GameObjects/Map/Map.h
+        src/GameControllers/AISpawner.h
+        src/GameControllers/AISpawner.cpp
+        src/GameObjects/Characters/AI/AIMelee.cpp
+        src/GameObjects/Characters/AI/AIMelee.h
+        src/GameObjects/Characters/AI/AIMelee.h
+        src/GameObjects/Characters/AI/AIMelee.cpp
+        src/GameObjects/Characters/AI/BaseEnemyEntity.cpp
+        src/GameObjects/Characters/AI/BaseEnemyEntity.h
 )
+
+add_executable(TestScript testFile.cpp)
+
 target_link_libraries(PJC_Project fmt sfml-graphics)
+target_link_libraries(TestScript fmt)
