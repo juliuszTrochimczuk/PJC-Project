@@ -53,11 +53,6 @@ int main() {
         window.clear(sf::Color::Black);
 
         for (auto& entity : GameController::getInstance()->getBasicEntities()) {
-            if (entity -> canDoStart())
-                entity->start();
-        }
-
-        for (auto& entity : GameController::getInstance()->getBasicEntities()) {
             entity->update();
         }
 

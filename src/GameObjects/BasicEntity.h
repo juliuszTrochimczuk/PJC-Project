@@ -5,15 +5,10 @@
 #include <fmt/core.h>
 
 class BasicEntity {
-private:
-    bool didStart = false;
 public:
     int priority;
     BasicEntity(int priority) {this->priority = priority; }
-    bool canDoStart() { return !didStart; }
-    virtual void start() {
-        this->didStart = true;
-    }
+    virtual void start() { }
     virtual void update() { }
 };
 

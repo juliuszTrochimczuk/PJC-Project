@@ -31,6 +31,7 @@ void GameController::refreshEnemyEntities() {
 }
 
 void GameController::addEntityToBasicEntities(std::unique_ptr<BasicEntity> newEntity) {
+    newEntity->start();
     basicEntities.push_back(std::move(newEntity));
     refreshBasicEntities();
 }

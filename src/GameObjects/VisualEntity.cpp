@@ -3,7 +3,6 @@
 #include <fmt/core.h>
 
 void VisualEntity::start() {
-    BasicEntity::start();
     shape->setPosition(spawnPosition.x, spawnPosition.y);
 }
 
