@@ -2,6 +2,7 @@
 #include "GameController.h"
 #include <random>
 #include <fmt/core.h>
+#include <iostream>
 
 AISpawner::AISpawner(float interval, std::vector<BaseEnemyEntity *> &enemyPool, int priority) : BasicEntity(priority) {
     this->interval = interval;
@@ -10,8 +11,10 @@ AISpawner::AISpawner(float interval, std::vector<BaseEnemyEntity *> &enemyPool, 
 
 void AISpawner::spawnEnemies() {
     auto enemyIndex = MathMethods::drawRandomNumber(0, enemyPool.size());
+    fmt::println("{}", enemyIndex);
     auto enemyPosition = drawEnemyPosition();
     auto newEnemy = std::make_unique<BaseEnemyEntity>(enemyPosition, *enemyPool[enemyIndex]);
+    std::cout << newEnemy << "\n";
     GameController::getInstance()->addEntityToEnemyEntities(newEnemy.get());
     GameController::getInstance()->addEntityToVisualEntities(newEnemy.get());
     GameController::getInstance()->addEntityToBasicEntities(std::move(newEnemy));

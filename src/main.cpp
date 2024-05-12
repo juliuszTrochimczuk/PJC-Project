@@ -22,22 +22,22 @@ int main() {
     auto window = sf::RenderWindow(sf::VideoMode(1920, 1001), "Killer Bean");
     GameController::getInstance()->setGameWindow(&window);
 
-    auto timeController = std::make_unique<TimeController>(101);
+    auto timeController = std::make_unique<TimeController>(120);
     GameController::getInstance()->setTimeController(timeController.get());
 
-    auto player = std::make_unique<Player>(25, 99);
-    GameController::getInstance()->setPlayer(player.get());
-
-    auto map = std::make_unique<Map>(100);
+    auto map = std::make_unique<Map>(110);
     GameController::getInstance()->setMap(map.get());
 
     auto baseEnemyEntity = BaseEnemyEntity(80);
     auto enemyPool = std::vector<BaseEnemyEntity*> {
-        &baseEnemyEntity
+            &baseEnemyEntity
     };
-    auto aiSpawner = std::make_unique<AISpawner>(1.2f, enemyPool, 90);
+    auto aiSpawner = std::make_unique<AISpawner>(0.01f, enemyPool, 95);
 
-    GameController::getInstance()->setGameFrameRate(240);
+    auto player = std::make_unique<Player>(25, 90);
+    GameController::getInstance()->setPlayer(player.get());
+
+    GameController::getInstance()->setGameFrameRate(60);
 
     GameController::getInstance()->addEntityToVisualEntities(player.get());
     GameController::getInstance()->addEntityToVisualEntities(map.get());
@@ -65,5 +65,6 @@ int main() {
     GameController::getInstance()->removeAllEnemyEntities();
     GameController::getInstance()->removeAllVisualEntities();
     GameController::getInstance()->removeAllBasicEntities();
+
     delete GameController::getInstance();
 }

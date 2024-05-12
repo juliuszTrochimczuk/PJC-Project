@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef PJC_PROJECT_VISUALENTITY_H
 #define PJC_PROJECT_VISUALENTITY_H
 

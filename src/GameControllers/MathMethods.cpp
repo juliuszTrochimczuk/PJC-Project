@@ -11,6 +11,7 @@ sf::Vector2<float> MathMethods::vector2Normalize(sf::Vector2<float> &vec) {
 }
 
 int MathMethods::drawRandomNumber(int min, int max) {
+    return min + (rand() % max - min);
     //obtain a random number from hardware
     auto rd = std::random_device();
     //seed the generator

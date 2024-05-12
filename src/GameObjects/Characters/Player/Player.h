@@ -1,5 +1,8 @@
+#pragma once
+
 #ifndef PJC_PROJECT_PLAYER_H
 #define PJC_PROJECT_PLAYER_H
+
 #include "SFML/Graphics.hpp"
 #include "../Character.h"
 #include "../../BasicEntity.h"

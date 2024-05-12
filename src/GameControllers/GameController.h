@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef PJC_PROJECT_GAMECONTROLLER_H
 #define PJC_PROJECT_GAMECONTROLLER_H
 

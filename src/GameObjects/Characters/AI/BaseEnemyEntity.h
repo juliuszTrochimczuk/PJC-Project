@@ -1,12 +1,12 @@
+#pragma once
+
 #ifndef TESTSCRIPT_BASEENEMYENTITY_H
 #define TESTSCRIPT_BASEENEMYENTITY_H
-
 
 #include "../Character.h"
 #include <fmt/core.h>
 
 class BaseEnemyEntity : public Character {
-private:
 public:
     BaseEnemyEntity(int priority) : Character(30, priority) {
         shape->setFillColor(sf::Color::Red);
