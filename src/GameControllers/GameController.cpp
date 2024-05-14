@@ -31,18 +31,35 @@ void GameController::refreshEnemyEntities() {
 }
 
 void GameController::addEntityToBasicEntities(std::unique_ptr<BasicEntity> newEntity) {
-    newEntity->start();
-    basicEntities.push_back(std::move(newEntity));
-    refreshBasicEntities();
+    basicEntitiesHolder.push_back(std::move(newEntity));
 }
 
 void GameController::addEntityToVisualEntities(VisualEntity* newVisualEntity) {
-    visualEntities.push_back(newVisualEntity);
-    refreshVisualEntities();
+    visualEntitiesHolder.push_back(newVisualEntity);
 }
 
 void GameController::addEntityToEnemyEntities(BaseEnemyEntity* newEnemyEntity) {
-    enemyEntities.push_back(newEnemyEntity);
+    enemyEntitiesHolder.push_back(newEnemyEntity);
+}
+
+void GameController::addToMainVectorsFromHolders() {
+    for (auto& e : basicEntitiesHolder) {
+        e->start();
+        basicEntities.push_back(std::move(e));
+    }
+    basicEntitiesHolder.clear();
+    refreshBasicEntities();
+
+    for (auto& e : visualEntitiesHolder) {
+        visualEntities.push_back(e);
+    }
+    visualEntitiesHolder.clear();
+    refreshVisualEntities();
+
+    for (auto& e : enemyEntitiesHolder) {
+        enemyEntities.push_back(e);
+    }
+    enemyEntitiesHolder.clear();
     refreshEnemyEntities();
 }
 

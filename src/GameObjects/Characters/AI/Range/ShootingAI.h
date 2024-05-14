@@ -1,0 +1,9 @@
+#ifndef TESTSCRIPT_SHOOTINGAI_H
+#define TESTSCRIPT_SHOOTINGAI_H
+
+class ShootingAI {
+
+};
+
+
+#endif //TESTSCRIPT_SHOOTINGAI_H

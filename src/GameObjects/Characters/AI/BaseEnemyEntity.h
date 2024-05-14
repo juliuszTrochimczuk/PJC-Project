@@ -1,23 +1,31 @@
-#pragma once
-
 #ifndef TESTSCRIPT_BASEENEMYENTITY_H
 #define TESTSCRIPT_BASEENEMYENTITY_H
 
 #include "../Character.h"
 #include <fmt/core.h>
+#include <memory>
 
 class BaseEnemyEntity : public Character {
+private:
+    float timeLastMadeAttack = 0;
+    float shapeRadius;
+
+    void move();
+protected:
+    float damage;
+    float speed;
+    float maxDistanceToPlayer;
+    float distanceToPlayer;
+    float interval;
+
+    virtual bool canAttack() { return true; }
+    virtual void attack() { }
 public:
-    BaseEnemyEntity(int priority) : Character(30, priority) {
-        shape->setFillColor(sf::Color::Red);
-        this->health = 30;
-    };
-    BaseEnemyEntity(sf::Vector2<unsigned int> spawnPosition, BaseEnemyEntity const &copy) :
-                    Character(30, copy.priority) {
-        shape->setFillColor(sf::Color::Red);
-        this->health = copy.getHealth();
-        this->spawnPosition = spawnPosition;
-    };
+    BaseEnemyEntity(float shapeRadius, int priority);
+    virtual std::unique_ptr<BaseEnemyEntity> makeCopy(sf::Vector2<unsigned int> spawnPosition, BaseEnemyEntity const& copy) const = 0;
+    void update() override;
+    void onDeath() override;
+    float getShapeRadius() const { return shapeRadius; }
 };
 
 

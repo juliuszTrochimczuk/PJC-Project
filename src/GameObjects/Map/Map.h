@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef PJC_PROJECT_MAP_H
 #define PJC_PROJECT_MAP_H
 

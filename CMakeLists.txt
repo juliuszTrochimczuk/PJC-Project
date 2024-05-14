@@ -24,9 +24,7 @@ add_executable(PJC_Project src/main.cpp
         src/GameObjects/Characters/Character.h
         src/GameObjects/Characters/Character.cpp
         src/GameControllers/MathMethods.h
-        src/GameControllers/MathMethods.h
         src/GameControllers/MathMethods.cpp
-        src/GameControllers/GameController.h
         src/GameControllers/GameController.h
         src/GameControllers/GameController.cpp
         src/GameObjects/BasicEntity.h
@@ -38,12 +36,16 @@ add_executable(PJC_Project src/main.cpp
         src/GameObjects/Map/Map.h
         src/GameControllers/AISpawner.h
         src/GameControllers/AISpawner.cpp
-        src/GameObjects/Characters/AI/AIMelee.cpp
-        src/GameObjects/Characters/AI/AIMelee.h
-        src/GameObjects/Characters/AI/AIMelee.h
-        src/GameObjects/Characters/AI/AIMelee.cpp
         src/GameObjects/Characters/AI/BaseEnemyEntity.cpp
         src/GameObjects/Characters/AI/BaseEnemyEntity.h
+        src/GameObjects/Bullets/EnemyBullet.cpp
+        src/GameObjects/Bullets/EnemyBullet.h
+        src/GameObjects/Bullets/Bullet.cpp
+        src/GameObjects/Bullets/Bullet.h
+        src/GameObjects/Characters/AI/Melee/CircleMeleeAI.cpp
+        src/GameObjects/Characters/AI/Melee/CircleMeleeAI.h
+        src/GameObjects/Characters/AI/Range/ShootingAI.cpp
+        src/GameObjects/Characters/AI/Range/ShootingAI.h
 )
 
 add_executable(TestScript testFile.cpp)

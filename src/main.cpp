@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "GameObjects/Characters/Player/Player.h"
+#include "GameObjects/Characters/AI/Melee/CircleMeleeAI.h"
 #include "GameControllers/GameController.h"
 #include "GameObjects/Map/Map.h"
 #include "GameControllers/AISpawner.h"
@@ -28,11 +29,11 @@ int main() {
     auto map = std::make_unique<Map>(110);
     GameController::getInstance()->setMap(map.get());
 
-    auto baseEnemyEntity = BaseEnemyEntity(80);
+    auto circleMeleeAI = CircleMeleeAI(15, 80);
     auto enemyPool = std::vector<BaseEnemyEntity*> {
-            &baseEnemyEntity
+            &circleMeleeAI
     };
-    auto aiSpawner = std::make_unique<AISpawner>(0.01f, enemyPool, 95);
+    auto aiSpawner = std::make_unique<AISpawner>(1.5f, enemyPool, 95);
 
     auto player = std::make_unique<Player>(25, 90);
     GameController::getInstance()->setPlayer(player.get());
@@ -51,6 +52,8 @@ int main() {
         HandleEvents(window);
 
         window.clear(sf::Color::Black);
+
+        GameController::getInstance()->addToMainVectorsFromHolders();
 
         for (auto& entity : GameController::getInstance()->getBasicEntities()) {
             entity->update();

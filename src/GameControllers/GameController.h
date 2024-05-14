@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef PJC_PROJECT_GAMECONTROLLER_H
 #define PJC_PROJECT_GAMECONTROLLER_H
 
@@ -19,6 +17,10 @@ private:
     std::vector<VisualEntity*> visualEntities;
     std::vector<BaseEnemyEntity*> enemyEntities;
 
+    std::vector<std::unique_ptr<BasicEntity>> basicEntitiesHolder;
+    std::vector<VisualEntity*> visualEntitiesHolder;
+    std::vector<BaseEnemyEntity*> enemyEntitiesHolder;
+
     void refreshBasicEntities();
     void refreshVisualEntities();
     void refreshEnemyEntities();
@@ -37,10 +39,13 @@ public:
 
     std::vector<std::unique_ptr<BasicEntity>> const& getBasicEntities() const { return basicEntities; }
     std::vector<VisualEntity*> getVisualEntities() const { return visualEntities; }
+    std::vector<BaseEnemyEntity*> getEnemyEntities() const { return enemyEntities; }
 
     void addEntityToBasicEntities(std::unique_ptr<BasicEntity> newEntity);
     void addEntityToVisualEntities(VisualEntity* newVisualEntity);
     void addEntityToEnemyEntities(BaseEnemyEntity* newEnemyEntity);
+
+    void addToMainVectorsFromHolders();
 
     void removeFromBasicEntities();
     void removeFromVisualEntities();

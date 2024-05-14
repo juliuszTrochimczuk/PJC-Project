@@ -9,7 +9,7 @@ Player::Player(float shapeRadius, int priority) : Character(shapeRadius, priorit
     spawnPosition.x = spawnPosition.x / 2;
     spawnPosition.y = spawnPosition.y / 2;
     health = 100;
-    moveSpeed = 107.5f;
+    moveSpeed = 115.5f;
 }
 
 sf::Vector2<float> Player::getInputVector() {
@@ -18,7 +18,8 @@ sf::Vector2<float> Player::getInputVector() {
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) inputVector.x = 1;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) inputVector.y = -1;
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) inputVector.y = 1;
-    MathMethods::vector2Normalize(inputVector);
+    if (MathMethods::vector2Magnitude(inputVector) > 1)
+        inputVector = MathMethods::vector2Normalize(inputVector);
     return inputVector;
 }
 
@@ -38,5 +39,10 @@ void Player::moveCharacter() {
 }
 
 void Player::update() {
+    fmt::println("{}", getHealth());
     moveCharacter();
+}
+
+void Player::onDeath() {
+    fmt::println("PLAYER HAS DIED");
 }

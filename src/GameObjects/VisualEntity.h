@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef PJC_PROJECT_VISUALENTITY_H
 #define PJC_PROJECT_VISUALENTITY_H
 
@@ -9,7 +7,7 @@ class VisualEntity : public BasicEntity {
 private:
     sf::Vector2<unsigned int> spawnPosition;
 protected:
-    sf::Shape* shape{};
+    sf::Shape* shape;
     void setSpawnPosition(sf::Vector2<unsigned int> spawnPosition) { this->spawnPosition = spawnPosition; }
 public:
     VisualEntity(int priority) : BasicEntity(priority) { }

@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef PJC_PROJECT_CHARACTER_H
 #define PJC_PROJECT_CHARACTER_H
 
@@ -15,8 +13,10 @@ protected:
     sf::Vector2<unsigned int> spawnPosition;
     Character(float shapeRadius, int priority);
 public:
-    int getHealth() const { return health; }
     void start() override;
+    int getHealth() const { return health; }
+    void takeDamage(int amount);
+    virtual void onDeath() = 0;
 };
 
 #endif //PJC_PROJECT_CHARACTER_H

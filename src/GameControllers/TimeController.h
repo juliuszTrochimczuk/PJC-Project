@@ -1,7 +1,6 @@
 #ifndef PJC_PROJECT_TIMECONTROLLER_H
 #define PJC_PROJECT_TIMECONTROLLER_H
 
-
 #include "../GameObjects/BasicEntity.h"
 
 class TimeController : public BasicEntity {

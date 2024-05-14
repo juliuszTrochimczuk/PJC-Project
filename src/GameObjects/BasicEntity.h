@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef PJC_PROJECT_BASICENTITY_H
 #define PJC_PROJECT_BASICENTITY_H
 
@@ -10,6 +8,7 @@ class BasicEntity {
 public:
     int priority;
     BasicEntity(int priority) {this->priority = priority; }
+    virtual ~BasicEntity() = default;
     virtual void start() { }
     virtual void update() { }
 };

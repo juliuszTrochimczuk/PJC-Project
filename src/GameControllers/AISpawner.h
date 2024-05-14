@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef TESTSCRIPT_AISPAWNER_H
 #define TESTSCRIPT_AISPAWNER_H
 

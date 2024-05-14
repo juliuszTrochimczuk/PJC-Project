@@ -12,3 +12,9 @@ void Character::start() {
     setSpawnPosition(spawnPosition);
     VisualEntity::start();
 }
+
+void Character::takeDamage(int amount) {
+    health -= amount;
+    if (health < 0)
+        onDeath();
+}
