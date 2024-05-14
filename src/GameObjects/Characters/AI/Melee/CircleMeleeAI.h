@@ -5,7 +5,6 @@
 
 class CircleMeleeAI : public BaseEnemyEntity {
 private:
-    bool canAttack() override;
     void attack() override;
 public:
     CircleMeleeAI(float shapeRadius, int priority);

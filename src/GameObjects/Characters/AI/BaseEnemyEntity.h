@@ -18,7 +18,7 @@ protected:
     float distanceToPlayer;
     float interval;
 
-    virtual bool canAttack() { return true; }
+    virtual bool canAttack() { return distanceToPlayer <= maxDistanceToPlayer; }
     virtual void attack() { }
 public:
     BaseEnemyEntity(float shapeRadius, int priority);

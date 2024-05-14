@@ -10,10 +10,6 @@ CircleMeleeAI::CircleMeleeAI(float shapeRadius, int priority) : BaseEnemyEntity(
     interval = 1.4f;
 }
 
-bool CircleMeleeAI::canAttack() {
-    return distanceToPlayer <= maxDistanceToPlayer;
-}
-
 void CircleMeleeAI::attack() {
     fmt::println("I'm melee atacking in aoe");
     GameController::getInstance()->player->takeDamage(damage);
