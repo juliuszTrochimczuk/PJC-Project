@@ -22,7 +22,7 @@ protected:
     virtual void attack() { }
 public:
     BaseEnemyEntity(float shapeRadius, int priority);
-    virtual std::unique_ptr<BaseEnemyEntity> makeCopy(sf::Vector2<unsigned int> spawnPosition, BaseEnemyEntity const& copy) const = 0;
+    virtual std::unique_ptr<BaseEnemyEntity> makeCopy(sf::Vector2<unsigned int> spawnPosition) const = 0;
     void update() override;
     void onDeath() override;
     float getShapeRadius() const { return shapeRadius; }

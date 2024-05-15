@@ -8,11 +8,11 @@ private:
     void attack() override;
 public:
     CircleMeleeAI(float shapeRadius, int priority);
-    CircleMeleeAI(sf::Vector2<unsigned int> spawnPosition, BaseEnemyEntity const& copy) : CircleMeleeAI(copy.getShapeRadius(), copy.priority) {
+    CircleMeleeAI(sf::Vector2<unsigned int> spawnPosition, float shapeRadius, int priority) : CircleMeleeAI(shapeRadius, priority) {
         this->spawnPosition = spawnPosition;
     }
-    std::unique_ptr<BaseEnemyEntity> makeCopy(sf::Vector2<unsigned int> spawnPosition, BaseEnemyEntity const& copy) const override  {
-        return std::make_unique<CircleMeleeAI>(spawnPosition, copy);
+    std::unique_ptr<BaseEnemyEntity> makeCopy(sf::Vector2<unsigned int> spawnPosition) const override  {
+        return std::make_unique<CircleMeleeAI>(spawnPosition, this->getShapeRadius(), this->priority);
     };
 };
 
