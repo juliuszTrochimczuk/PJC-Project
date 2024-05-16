@@ -30,50 +30,71 @@ void GameController::refreshEnemyEntities() {
                       [](auto const& enemy) { return enemy->getHealth(); });
 }
 
-void GameController::addEntityToBasicEntities(std::unique_ptr<BasicEntity> newEntity) {
+void GameController::addBasicEntity(std::unique_ptr<BasicEntity> newEntity) {
     basicEntitiesHolder.push_back(std::move(newEntity));
 }
 
-void GameController::addEntityToVisualEntities(VisualEntity* newVisualEntity) {
+void GameController::addVisualEntity(VisualEntity* newVisualEntity) {
     visualEntitiesHolder.push_back(newVisualEntity);
 }
 
-void GameController::addEntityToEnemyEntities(BaseEnemyEntity* newEnemyEntity) {
+void GameController::addEnemyEntity(BaseEnemyEntity* newEnemyEntity) {
     enemyEntitiesHolder.push_back(newEnemyEntity);
 }
 
-void GameController::addToMainVectorsFromHolders() {
+void GameController::addFromBasicHolderToVector() {
     for (auto& e : basicEntitiesHolder) {
         e->start();
         basicEntities.push_back(std::move(e));
     }
     basicEntitiesHolder.clear();
-    refreshBasicEntities();
+}
 
+void GameController::addFromVisualHolderToVector() {
     for (auto& e : visualEntitiesHolder) {
         visualEntities.push_back(e);
     }
     visualEntitiesHolder.clear();
-    refreshVisualEntities();
+}
 
+void GameController::addFromEnemyHolderToVector() {
     for (auto& e : enemyEntitiesHolder) {
         enemyEntities.push_back(e);
     }
     enemyEntitiesHolder.clear();
+}
+
+void GameController::refreshVectorsWithEntities() {
+    refreshEnemyEntities();
+    removeFromEnemyEntities();
+
+    refreshVisualEntities();
+    removeFromVisualEntities();
+
+    refreshBasicEntities();
+    removeFromBasicEntities();
+
+    addFromBasicHolderToVector();
+    refreshBasicEntities();
+
+    addFromVisualHolderToVector();
+    refreshVisualEntities();
+
+    addFromEnemyHolderToVector();
     refreshEnemyEntities();
 }
 
 void GameController::removeFromBasicEntities() {
-    refreshBasicEntities();
-    auto eIter = basicEntities.size() - 1;
-    while (basicEntities[eIter]-> priority < 0) {
+    if (basicEntities.size() == 0) return;
+    auto bIter = basicEntities.size() - 1;
+    while (basicEntities[bIter]-> priority < 0) {
         basicEntities.pop_back();
-        eIter--;
+        bIter--;
     }
 }
 
 void GameController::removeFromVisualEntities() {
-    refreshVisualEntities();
+    if (visualEntities.size() == 0) return;
     auto vIter = visualEntities.back();
     while (vIter-> priority < 0) {
         visualEntities.pop_back();
@@ -82,11 +103,11 @@ void GameController::removeFromVisualEntities() {
 }
 
 void GameController::removeFromEnemyEntities() {
-    refreshEnemyEntities();
-    auto enemyIter = enemyEntities.back();
-    while (enemyIter->getHealth() < 1) {
+    if (enemyEntities.size() == 0) return;
+    auto eIter = enemyEntities.back();
+    while (eIter->getHealth() < 1) {
         enemyEntities.pop_back();
-        enemyIter--;
+        eIter--;
     }
 }
 

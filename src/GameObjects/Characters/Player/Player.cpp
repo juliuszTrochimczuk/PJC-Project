@@ -9,7 +9,7 @@ Player::Player(float shapeRadius, int priority) : Character(shapeRadius, priorit
     spawnPosition.x = spawnPosition.x / 2;
     spawnPosition.y = spawnPosition.y / 2;
     health = 100;
-    moveSpeed = 115.5f;
+    moveSpeed = 125.5f;
 }
 
 sf::Vector2<float> Player::getInputVector() {

@@ -8,24 +8,22 @@
 class BaseEnemyEntity : public Character {
 private:
     float timeLastMadeAttack = 0;
-    float shapeRadius;
+    float distanceToPlayer;
 
     void move();
 protected:
-    float damage;
-    float speed;
-    float maxDistanceToPlayer;
-    float distanceToPlayer;
-    float interval;
+    const int damage;
+    const float speed;
+    const float maxDistanceToPlayer;
+    const float intervalBetweenAction;
 
     virtual bool canAttack() { return distanceToPlayer <= maxDistanceToPlayer; }
     virtual void attack() { }
 public:
-    BaseEnemyEntity(float shapeRadius, int priority);
+    BaseEnemyEntity(int health, int damage, float speed, float maxDistanceToPlayer, float intervalBetweenAction, float shapeRadius, int priority);
     virtual std::unique_ptr<BaseEnemyEntity> makeCopy(sf::Vector2<unsigned int> spawnPosition) const = 0;
     void update() override;
     void onDeath() override;
-    float getShapeRadius() const { return shapeRadius; }
 };
 
 

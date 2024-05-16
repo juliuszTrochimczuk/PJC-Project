@@ -1,11 +1,11 @@
 #include <fmt/core.h>
 #include <SFML/Graphics.hpp>
-#include <iostream>
 #include "GameObjects/Characters/Player/Player.h"
-#include "GameObjects/Characters/AI/Melee/CircleMeleeAI.h"
+#include "GameObjects/Characters/AI/Melee/MeleeAI.h"
 #include "GameControllers/GameController.h"
 #include "GameObjects/Map/Map.h"
 #include "GameControllers/AISpawner.h"
+#include "GameObjects/Characters/AI/Range/ShootingAI.h"
 
 void HandleEvents(sf::RenderWindow &window) {
     auto event = sf::Event();
@@ -29,31 +29,36 @@ int main() {
     auto map = std::make_unique<Map>(110);
     GameController::getInstance()->setMap(map.get());
 
-    auto circleMeleeAI = CircleMeleeAI(15, 80);
+    auto meleeAI = MeleeAI(15, 5, 90.5f, 45.0f, 1.4f, 15, 80);
+    auto shootingAI1 = ShootingAI(std::vector<sf::Vector2<float>> {
+        sf::Vector2<float>(-1, 0),
+        sf::Vector2<float>(1, 0)
+        },115.5f, 30, 8, 55.8f, 350.0f, 2.0f, 30, 80);
     auto enemyPool = std::vector<BaseEnemyEntity*> {
-            &circleMeleeAI
+            //&meleeAI,
+            &shootingAI1
     };
-    auto aiSpawner = std::make_unique<AISpawner>(1.5f, enemyPool, 95);
+    auto aiSpawner = std::make_unique<AISpawner>(0.01f, enemyPool, 95);
 
     auto player = std::make_unique<Player>(25, 90);
     GameController::getInstance()->setPlayer(player.get());
 
     GameController::getInstance()->setGameFrameRate(60);
 
-    GameController::getInstance()->addEntityToVisualEntities(player.get());
-    GameController::getInstance()->addEntityToVisualEntities(map.get());
+    GameController::getInstance()->addVisualEntity(player.get());
+    GameController::getInstance()->addVisualEntity(map.get());
 
-    GameController::getInstance()->addEntityToBasicEntities(std::move(timeController));
-    GameController::getInstance()->addEntityToBasicEntities(std::move(player));
-    GameController::getInstance()->addEntityToBasicEntities(std::move(map));
-    GameController::getInstance()->addEntityToBasicEntities(std::move(aiSpawner));
+    GameController::getInstance()->addBasicEntity(std::move(timeController));
+    GameController::getInstance()->addBasicEntity(std::move(player));
+    GameController::getInstance()->addBasicEntity(std::move(map));
+    GameController::getInstance()->addBasicEntity(std::move(aiSpawner));
 
     while (window.isOpen()) {
         HandleEvents(window);
 
         window.clear(sf::Color::Black);
 
-        GameController::getInstance()->addToMainVectorsFromHolders();
+        GameController::getInstance()->refreshVectorsWithEntities();
 
         for (auto& entity : GameController::getInstance()->getBasicEntities()) {
             entity->update();

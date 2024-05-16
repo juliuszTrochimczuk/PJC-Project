@@ -1,16 +1,17 @@
+#include <fmt/core.h>
 #include "ShootingAI.h"
-
-ShootingAI::ShootingAI(std::vector<sf::Vector2<float>> shootingPoints,float shapeRadius, int priority) :
-BaseEnemyEntity(shapeRadius, priority), shootingPoints(shootingPoints) {
-    health = 15;
-    damage = 5;
-    speed = 90.5f;
-    maxDistanceToPlayer = 45.0f;
-    interval = 1.4f;
-}
+#include "../../../Bullets/EnemyBullet.h"
+#include "../../../../GameControllers/GameController.h"
 
 void ShootingAI::attack() {
-    BaseEnemyEntity::attack();
+    for (auto& direction : shootingDirections) {
+        auto spawnPosition = sf::Vector2<unsigned int>();
+        spawnPosition.x = static_cast<unsigned int>(shape->getPosition().x);
+        spawnPosition.y = static_cast<unsigned int>(shape->getPosition().y);
+        auto bullet = std::make_unique<EnemyBullet>
+                (spawnPosition, bulletSpeed, damage, direction, 70);
+        GameController::getInstance()->addVisualEntity(bullet.get());
+        GameController::getInstance()->addBasicEntity(std::move(bullet));
+    }
+    fmt::println("I'm shooting now");
 }
-
-

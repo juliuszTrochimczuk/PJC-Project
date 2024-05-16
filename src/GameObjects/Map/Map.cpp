@@ -9,10 +9,9 @@ Map::Map(int priority) : VisualEntity(priority) {
     size.x /= 2;
     size.y /= 2;
     correctShape.setOrigin(size);
-    auto spawnPosition = GameController::getInstance()->gameWindow->getSize();
+    spawnPosition = GameController::getInstance()->gameWindow->getSize();
     spawnPosition.x = spawnPosition.x / 2;
     spawnPosition.y = spawnPosition.y / 2;
-    setSpawnPosition(spawnPosition);
     shape = &correctShape;
 }
 

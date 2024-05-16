@@ -8,13 +8,10 @@ Character::Character(float shapeRadius, int priority) : VisualEntity(priority) {
     shape = &correctShape;
 }
 
-void Character::start() {
-    setSpawnPosition(spawnPosition);
-    VisualEntity::start();
-}
-
 void Character::takeDamage(int amount) {
     health -= amount;
-    if (health < 0)
+    if (health < 0) {
         onDeath();
+        priority = -100;
+    }
 }

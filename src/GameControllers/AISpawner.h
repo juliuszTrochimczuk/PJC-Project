@@ -13,9 +13,9 @@ private:
     sf::Vector2<unsigned int> drawEnemyPosition();
     std::vector<BaseEnemyEntity*> enemyPool;
 public:
-    AISpawner(float interval, std::vector<BaseEnemyEntity*>& enemyPool, int priority);
+    AISpawner(float interval, std::vector<BaseEnemyEntity*>& enemyPool, int priority) : BasicEntity(priority),
+        interval(interval), enemyPool(enemyPool) { };
     void update() override;
 };
-
 
 #endif //TESTSCRIPT_AISPAWNER_H
