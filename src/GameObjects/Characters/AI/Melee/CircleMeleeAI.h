@@ -12,9 +12,8 @@ public:
         this->spawnPosition = spawnPosition;
     }
     std::unique_ptr<BaseEnemyEntity> makeCopy(sf::Vector2<unsigned int> spawnPosition) const override  {
-        return std::make_unique<CircleMeleeAI>(spawnPosition, this->getShapeRadius(), this->priority);
+        return std::make_unique<CircleMeleeAI>(spawnPosition, this->correctShape.getRadius(), this->priority);
     };
 };
-
 
 #endif //TESTSCRIPT_CIRCLEMELEEAI_H

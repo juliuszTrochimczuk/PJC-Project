@@ -3,7 +3,6 @@
 
 BaseEnemyEntity::BaseEnemyEntity(float shapeRadius, int priority) : Character(shapeRadius, priority) {
     shape->setFillColor(sf::Color::Red);
-    this->shapeRadius = shapeRadius;
 }
 
 void BaseEnemyEntity::update() {

@@ -8,7 +8,6 @@
 class BaseEnemyEntity : public Character {
 private:
     float timeLastMadeAttack = 0;
-    float shapeRadius;
 
     void move();
 protected:
@@ -25,7 +24,6 @@ public:
     virtual std::unique_ptr<BaseEnemyEntity> makeCopy(sf::Vector2<unsigned int> spawnPosition) const = 0;
     void update() override;
     void onDeath() override;
-    float getShapeRadius() const { return shapeRadius; }
 };
 
 

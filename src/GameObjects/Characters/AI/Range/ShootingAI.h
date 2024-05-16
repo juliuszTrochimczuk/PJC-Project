@@ -9,7 +9,7 @@ private:
     void attack() override;
 public:
     ShootingAI(std::vector<sf::Vector2<float>> shootingPoints, float shapeRadius, int priority);
-    ShootingAI(sf::Vector2<unsigned int> spawnPosition, BaseEnemyEntity const& copy) : ShootingAI(copy.getShapeRadius(), copy.priority) {
+    ShootingAI(sf::Vector2<unsigned int> spawnPosition, BaseEnemyEntity const& copy) : ShootingAI(copy.(), copy.priority) {
         this->spawnPosition = spawnPosition;
     }
     std::unique_ptr<BaseEnemyEntity> makeCopy(sf::Vector2<unsigned int> spawnPosition) const override  {
