@@ -1,8 +1,11 @@
 #include "BaseEnemyEntity.h"
 #include "../../../GameControllers/GameController.h"
 
-BaseEnemyEntity::BaseEnemyEntity(float shapeRadius, int priority) : Character(shapeRadius, priority) {
+BaseEnemyEntity::BaseEnemyEntity(int health, int damage, float speed, float maxDistanceToPlayer, float intervalBetweenAction,
+                                 float shapeRadius, int priority) : Character(shapeRadius, priority), damage(damage),
+                                 speed(speed), maxDistanceToPlayer(maxDistanceToPlayer), intervalBetweenAction(intervalBetweenAction) {
     shape->setFillColor(sf::Color::Red);
+    this->health = health;
 }
 
 void BaseEnemyEntity::update() {
@@ -10,7 +13,7 @@ void BaseEnemyEntity::update() {
     auto appRunTime = GameController::getInstance()->timeController->getApplicationRuntime();
     if (distanceToPlayer > maxDistanceToPlayer)
         move();
-    if (appRunTime - timeLastMadeAttack > interval and canAttack()) {
+    if (appRunTime - timeLastMadeAttack > intervalBetweenAction and canAttack()) {
         timeLastMadeAttack = appRunTime;
         attack();
     }
@@ -25,4 +28,5 @@ void BaseEnemyEntity::move() {
 void BaseEnemyEntity::onDeath() {
     fmt::println("ENEMY HAS DIED");
 }
+
 

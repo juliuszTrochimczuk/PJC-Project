@@ -42,8 +42,8 @@ add_executable(PJC_Project src/main.cpp
         src/GameObjects/Bullets/EnemyBullet.h
         src/GameObjects/Bullets/Bullet.cpp
         src/GameObjects/Bullets/Bullet.h
-        src/GameObjects/Characters/AI/Melee/CircleMeleeAI.cpp
-        src/GameObjects/Characters/AI/Melee/CircleMeleeAI.h
+        src/GameObjects/Characters/AI/Melee/MeleeAI.cpp
+        src/GameObjects/Characters/AI/Melee/MeleeAI.h
         src/GameObjects/Characters/AI/Range/ShootingAI.cpp
         src/GameObjects/Characters/AI/Range/ShootingAI.h
 )

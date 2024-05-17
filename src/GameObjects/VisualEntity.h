@@ -4,11 +4,9 @@
 #include "BasicEntity.h"
 
 class VisualEntity : public BasicEntity {
-private:
-    sf::Vector2<unsigned int> spawnPosition;
 protected:
     sf::Shape* shape;
-    void setSpawnPosition(sf::Vector2<unsigned int> spawnPosition) { this->spawnPosition = spawnPosition; }
+    sf::Vector2<unsigned int> spawnPosition;
 public:
     VisualEntity(int priority) : BasicEntity(priority) { }
     void start() override;

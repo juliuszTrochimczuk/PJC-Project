@@ -24,6 +24,14 @@ private:
     void refreshBasicEntities();
     void refreshVisualEntities();
     void refreshEnemyEntities();
+
+    void removeFromBasicEntities();
+    void removeFromVisualEntities();
+    void removeFromEnemyEntities();
+
+    void addFromBasicHolderToVector();
+    void addFromVisualHolderToVector();
+    void addFromEnemyHolderToVector();
 public:
     static GameController* getInstance();
     sf::RenderWindow* gameWindow;
@@ -41,15 +49,11 @@ public:
     std::vector<VisualEntity*> getVisualEntities() const { return visualEntities; }
     std::vector<BaseEnemyEntity*> getEnemyEntities() const { return enemyEntities; }
 
-    void addEntityToBasicEntities(std::unique_ptr<BasicEntity> newEntity);
-    void addEntityToVisualEntities(VisualEntity* newVisualEntity);
-    void addEntityToEnemyEntities(BaseEnemyEntity* newEnemyEntity);
+    void addBasicEntity(std::unique_ptr<BasicEntity> newEntity);
+    void addVisualEntity(VisualEntity* newVisualEntity);
+    void addEnemyEntity(BaseEnemyEntity* newEnemyEntity);
 
-    void addToMainVectorsFromHolders();
-
-    void removeFromBasicEntities();
-    void removeFromVisualEntities();
-    void removeFromEnemyEntities();
+    void refreshVectorsWithEntities();
 
     void removeAllBasicEntities() { basicEntities.clear(); }
     void removeAllVisualEntities() { visualEntities.clear(); }

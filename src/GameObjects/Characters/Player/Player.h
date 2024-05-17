@@ -8,6 +8,7 @@
 
 class Player : public Character {
 private:
+    float moveSpeed;
     sf::Vector2<float> getInputVector();
     void moveCharacter();
 public:

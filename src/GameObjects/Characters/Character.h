@@ -8,12 +8,9 @@
 class Character : public VisualEntity {
 protected:
     int health;
-    float moveSpeed;
     sf::CircleShape correctShape;
-    sf::Vector2<unsigned int> spawnPosition;
     Character(float shapeRadius, int priority);
 public:
-    void start() override;
     int getHealth() const { return health; }
     void takeDamage(int amount);
     virtual void onDeath() = 0;

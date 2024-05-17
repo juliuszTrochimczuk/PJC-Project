@@ -8,11 +8,14 @@ private:
     sf::CircleShape correctShape;
     float speed;
     sf::Vector2<float> moveDirection;
+
+    bool isBulletOnMap();
 protected:
-    void destroyBullet();
     int damage;
+
+    void destroyBullet();
 public:
-    Bullet(int priority, sf::Vector2<unsigned int> spawnPos, float speed, int damage, sf::Vector2<float> moveDirection);
+    Bullet(sf::Vector2<unsigned int> spawnPos, float speed, int damage, sf::Vector2<float> moveDirection, int priority);
     void update() override;
 };
 
