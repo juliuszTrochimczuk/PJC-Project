@@ -6,6 +6,7 @@ void EnemyBullet::update() {
     Bullet::update();
     auto distanceToPlayer = MathMethods::vector2Distance(shape->getPosition(), GameController::getInstance()->player->getShape()->getPosition());
     if (distanceToPlayer < 10.5f) {
+        bulletDeath();
         GameController::getInstance()->player->takeDamage(damage);
     }
 }

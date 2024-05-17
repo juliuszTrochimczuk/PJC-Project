@@ -2,7 +2,6 @@
 #define TESTSCRIPT_SHOOTINGAI_H
 
 #include <utility>
-
 #include "../BaseEnemyEntity.h"
 
 class ShootingAI : public BaseEnemyEntity{

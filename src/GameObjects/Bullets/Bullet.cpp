@@ -16,16 +16,17 @@ Bullet::Bullet(sf::Vector2<unsigned int> spawnPos, float speed, int damage, sf::
 void Bullet::update() {
     shape->move(moveDirection * speed * GameController::getInstance()->timeController->getDeltaTime());
     if (!isBulletOnMap()) {
-        priority = -50;
+        bulletDeath();
     }
 }
 
-void Bullet::destroyBullet() {
-    fmt::println("BULLET DESTROY");
-}
 
 bool Bullet::isBulletOnMap() {
     auto position = shape->getPosition();
-    return (position.x >= GameController::getInstance()->map->leftUppMapCorner.x and position.y <= GameController::getInstance()->map->leftUppMapCorner.y
-        and position.x <= GameController::getInstance()->map->rightDownMapCorner.x and position.y >= GameController::getInstance()->map->leftUppMapCorner.y);
+    return (position.x >= GameController::getInstance()->map->leftUppMapCorner.x and position.y >= GameController::getInstance()->map->leftUppMapCorner.y
+        and position.x <= GameController::getInstance()->map->rightDownMapCorner.x and position.y <= GameController::getInstance()->map->rightDownMapCorner.y);
+}
+
+void Bullet::bulletDeath() {
+    priority = -50;
 }

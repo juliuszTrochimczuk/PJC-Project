@@ -35,7 +35,7 @@ int main() {
         sf::Vector2<float>(1, 0)
         },115.5f, 30, 8, 55.8f, 350.0f, 2.0f, 30, 80);
     auto enemyPool = std::vector<BaseEnemyEntity*> {
-            //&meleeAI,
+            &meleeAI,
             &shootingAI1
     };
     auto aiSpawner = std::make_unique<AISpawner>(0.01f, enemyPool, 95);
