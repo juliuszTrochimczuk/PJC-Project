@@ -63,7 +63,7 @@ int main() {
     GameController::getInstance()->setGameFrameRate(60);
 
     GameController::getInstance()->addVisualEntity(player.get());
-    GameController::getInstance()->addVisualEntity(map.get());
+    //GameController::getInstance()->addVisualEntity(map.get());
 
     GameController::getInstance()->addBasicEntity(std::move(timeController));
     GameController::getInstance()->addBasicEntity(std::move(player));

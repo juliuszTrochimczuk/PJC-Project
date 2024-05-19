@@ -8,10 +8,14 @@
 
 class Player : public Character {
 private:
+    int xpBarrier;
+    int currentXP;
     float moveSpeed;
 
     sf::Vector2<float> getInputVector();
     void moveCharacter();
+    void levelUp();
+    void chooseNewWeapon();
 public:
     Player(float shapeRadius, int priority);
     void update() override;
