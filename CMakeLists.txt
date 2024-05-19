@@ -46,6 +46,12 @@ add_executable(PJC_Project src/main.cpp
         src/GameObjects/Characters/AI/Melee/MeleeAI.h
         src/GameObjects/Characters/AI/Range/ShootingAI.cpp
         src/GameObjects/Characters/AI/Range/ShootingAI.h
+        src/GameObjects/Bullets/PlayerBullet.cpp
+        src/GameObjects/Bullets/PlayerBullet.h
+        src/GameObjects/Bullets/PlayerBullet.h
+        src/GameObjects/Characters/Player/Weapon.cpp
+        src/GameObjects/Characters/Player/Weapon.h
+        src/GameObjects/Characters/Player/Weapon.h
 )
 
 add_executable(TestScript testFile.cpp)

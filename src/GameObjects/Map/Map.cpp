@@ -5,10 +5,10 @@
 
 Map::Map(int priority) : VisualEntity(priority) {
     correctShape = sf::RectangleShape(sf::Vector2f(mapSize.x, mapSize.y));
-    auto size = correctShape.getSize();
-    size.x /= 2;
-    size.y /= 2;
-    correctShape.setOrigin(size);
+    auto origin = correctShape.getSize();
+    origin.x /= 2;
+    origin.y /= 2;
+    correctShape.setOrigin(origin);
     spawnPosition = GameController::getInstance()->gameWindow->getSize();
     spawnPosition.x = spawnPosition.x / 2;
     spawnPosition.y = spawnPosition.y / 2;

@@ -9,12 +9,14 @@
 class Player : public Character {
 private:
     float moveSpeed;
+
     sf::Vector2<float> getInputVector();
     void moveCharacter();
 public:
+    Player(float shapeRadius, int priority);
     void update() override;
     void onDeath() override;
-    Player(float shapeRadius, int priority);
+    void takeXP();
 };
 
 #endif //PJC_PROJECT_PLAYER_H

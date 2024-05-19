@@ -9,7 +9,7 @@ Player::Player(float shapeRadius, int priority) : Character(shapeRadius, priorit
     spawnPosition.x = spawnPosition.x / 2;
     spawnPosition.y = spawnPosition.y / 2;
     health = 100;
-    moveSpeed = 125.5f;
+    moveSpeed = 135.5f;
 }
 
 sf::Vector2<float> Player::getInputVector() {
@@ -39,10 +39,13 @@ void Player::moveCharacter() {
 }
 
 void Player::update() {
-    fmt::println("{}", getHealth());
     moveCharacter();
 }
 
 void Player::onDeath() {
     fmt::println("PLAYER HAS DIED");
+}
+
+void Player::takeXP() {
+    fmt::println("TAKE XP");
 }

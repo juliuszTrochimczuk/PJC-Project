@@ -6,6 +6,7 @@
 #include "GameObjects/Map/Map.h"
 #include "GameControllers/AISpawner.h"
 #include "GameObjects/Characters/AI/Range/ShootingAI.h"
+#include "GameObjects/Characters/Player/Weapon.h"
 
 void HandleEvents(sf::RenderWindow &window) {
     auto event = sf::Event();
@@ -29,19 +30,35 @@ int main() {
     auto map = std::make_unique<Map>(110);
     GameController::getInstance()->setMap(map.get());
 
-    auto meleeAI = MeleeAI(15, 5, 90.5f, 45.0f, 1.4f, 15, 80);
+    auto meleeAI = MeleeAI(10, 5, 90.5f, 45.0f, 1.4f, 15, 80);
     auto shootingAI1 = ShootingAI(std::vector<sf::Vector2<float>> {
         sf::Vector2<float>(-1, 0),
         sf::Vector2<float>(1, 0)
-        },115.5f, 30, 8, 55.8f, 350.0f, 2.0f, 30, 80);
+        },115.5f, 15, 8, 55.8f, 350.0f, 2.0f, 25, 80);
+    auto shootingAI2 = ShootingAI(std::vector<sf::Vector2<float>> {
+            sf::Vector2<float>(0, -1),
+            sf::Vector2<float>(0, 1)
+    },115.5f, 15, 8, 55.8f, 350.0f, 2.0f, 25, 80);
+    auto shootingAI3 = ShootingAI(std::vector<sf::Vector2<float>> {
+            sf::Vector2<float>(0, -1),
+            sf::Vector2<float>(0, 1),
+            sf::Vector2<float>(-1, 0),
+            sf::Vector2<float>(1, 0)
+    },115.5f, 25, 8, 55.8f, 425.0f, 2.0f, 35, 80);
     auto enemyPool = std::vector<BaseEnemyEntity*> {
             &meleeAI,
-            &shootingAI1
+            &shootingAI1,
+            &shootingAI2,
+            &shootingAI3
     };
     auto aiSpawner = std::make_unique<AISpawner>(0.01f, enemyPool, 95);
 
     auto player = std::make_unique<Player>(25, 90);
     GameController::getInstance()->setPlayer(player.get());
+
+    auto startingWeapon = std::make_unique<Weapon>(std::vector<sf::Vector2<float>> {
+       sf::Vector2<float>(0, -1)
+    }, 1, 150.0f, 5, 60);
 
     GameController::getInstance()->setGameFrameRate(60);
 
@@ -52,6 +69,7 @@ int main() {
     GameController::getInstance()->addBasicEntity(std::move(player));
     GameController::getInstance()->addBasicEntity(std::move(map));
     GameController::getInstance()->addBasicEntity(std::move(aiSpawner));
+    GameController::getInstance()->addBasicEntity(std::move(startingWeapon));
 
     while (window.isOpen()) {
         HandleEvents(window);

@@ -4,7 +4,6 @@
 Bullet::Bullet(sf::Vector2<unsigned int> spawnPos, float speed, int damage, sf::Vector2<float> moveDirection, int priority) :
         VisualEntity(priority), speed(speed), damage(damage), moveDirection(moveDirection) {
     correctShape = sf::CircleShape(5);
-    correctShape.setFillColor(sf::Color::Blue);
     auto originPoint = sf::Vector2<float>(1, 1);
     originPoint *= correctShape.getRadius() / 2;
     correctShape.setOrigin(originPoint);

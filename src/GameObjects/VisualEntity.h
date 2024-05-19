@@ -10,7 +10,7 @@ protected:
 public:
     VisualEntity(int priority) : BasicEntity(priority) { }
     void start() override;
-    sf::Shape* getShape();
+    sf::Shape* getShape() const;
 };
 
 

@@ -4,8 +4,7 @@
 
 void EnemyBullet::update() {
     Bullet::update();
-    auto distanceToPlayer = MathMethods::vector2Distance(shape->getPosition(), GameController::getInstance()->player->getShape()->getPosition());
-    if (distanceToPlayer < 10.5f) {
+    if (shape->getGlobalBounds().intersects(GameController::getInstance()->player->getShape()->getGlobalBounds())) {
         bulletDeath();
         GameController::getInstance()->player->takeDamage(damage);
     }

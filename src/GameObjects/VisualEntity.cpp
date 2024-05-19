@@ -6,6 +6,6 @@ void VisualEntity::start() {
     shape->setPosition(spawnPosition.x, spawnPosition.y);
 }
 
-sf::Shape* VisualEntity::getShape() {
+sf::Shape* VisualEntity::getShape() const {
     return shape;
 }

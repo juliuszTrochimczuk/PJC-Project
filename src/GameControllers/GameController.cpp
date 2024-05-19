@@ -1,6 +1,7 @@
 #include "GameController.h"
 #include <algorithm>
 #include <fmt/core.h>
+#include <iostream>
 
 GameController* GameController::instance = nullptr;
 
@@ -95,8 +96,8 @@ void GameController::removeFromBasicEntities() {
 
 void GameController::removeFromVisualEntities() {
     if (visualEntities.size() == 0) return;
-    auto vIter = visualEntities.back();
-    while (vIter-> priority < 0) {
+    auto vIter = visualEntities.size() - 1;
+    while (visualEntities[vIter]->priority < 0) {
         visualEntities.pop_back();
         vIter--;
     }
@@ -104,8 +105,8 @@ void GameController::removeFromVisualEntities() {
 
 void GameController::removeFromEnemyEntities() {
     if (enemyEntities.size() == 0) return;
-    auto eIter = enemyEntities.back();
-    while (eIter->getHealth() < 1) {
+    auto eIter = enemyEntities.size() - 1;
+    while (enemyEntities.size() != 0 and enemyEntities[eIter] -> getHealth() < 1) {
         enemyEntities.pop_back();
         eIter--;
     }
