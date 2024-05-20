@@ -9,7 +9,7 @@ private:
     sf::Texture texture;
     sf::CircleShape correctShape;
 public:
-    Fruit(int priority);
+    Fruit(sf::Vector2<unsigned int> spawnPos, int priority);
     void update() override;
 };
 

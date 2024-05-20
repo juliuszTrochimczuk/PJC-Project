@@ -62,3 +62,8 @@ void Player::levelUp() {
 void Player::chooseNewWeapon() {
     fmt::println("Get new weapon");
 }
+
+void Player::healing(int amount) {
+    health += amount;
+    if (health > 100) health = 100;
+}

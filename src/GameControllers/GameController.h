@@ -38,6 +38,7 @@ public:
     TimeController* timeController;
     Map* map;
     Player* player;
+    bool fruitOnLevel = false;
 
     void setGameWindow(sf::RenderWindow* gameWindow) { this->gameWindow = gameWindow;}
     void setTimeController(TimeController* timeController) { this->timeController = timeController; }

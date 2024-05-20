@@ -7,10 +7,10 @@
 
 class Spawner : public BasicEntity {
 private:
-    float fruitInterval;
+    float enemyTimer = 0;
+    float fruitTimer = 0;
     float enemyInterval;
-    float timeThatLastEnemyWasSpawned = 0;
-    float timeThatLastFruitWasSpawned = 0;
+    float fruitInterval;
     void spawnEnemies();
     void spawnFruit();
     sf::Vector2<unsigned int> drawPositionOnMap();

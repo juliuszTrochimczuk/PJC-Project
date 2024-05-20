@@ -51,7 +51,7 @@ int main() {
             &shootingAI2,
             &shootingAI3
     };
-    auto aiSpawner = std::make_unique<Spawner>(0.01f, enemyPool, 95);
+    auto aiSpawner = std::make_unique<Spawner>(5, 2.5f, enemyPool, 95);
 
     auto player = std::make_unique<Player>(25, 90);
     GameController::getInstance()->setPlayer(player.get());

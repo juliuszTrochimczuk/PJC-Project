@@ -1,5 +1,6 @@
 #include "Spawner.h"
 #include "GameController.h"
+#include "../GameObjects/Fruit/Fruit.h"
 #include <fmt/core.h>
 
 void Spawner::spawnEnemies() {
@@ -12,18 +13,26 @@ void Spawner::spawnEnemies() {
 }
 
 void Spawner::spawnFruit() {
-
+    auto newFruit = std::make_unique<Fruit>(drawPositionOnMap(), 25);
+    GameController::getInstance()->addVisualEntity(newFruit.get());
+    GameController::getInstance()->addBasicEntity(std::move(newFruit));
+    GameController::getInstance()->fruitOnLevel = true;
 }
 
 void Spawner::update() {
-    auto appRunTime =  GameController::getInstance()->timeController->getApplicationRuntime();
-    if (appRunTime - timeThatLastEnemyWasSpawned > enemyInterval and GameController::getInstance()->getEnemyEntities().size() < 5) {
-        timeThatLastEnemyWasSpawned = appRunTime;
-        spawnEnemies();
+    if (GameController::getInstance()->getEnemyEntities().size() < 5) {
+        enemyTimer += GameController::getInstance()->timeController->getDeltaTime();
+        if (enemyTimer > enemyInterval) {
+            enemyTimer = 0.0f;
+            spawnEnemies();
+        }
     }
-    if (appRunTime - timeThatLastFruitWasSpawned > fruitInterval) {
-        timeThatLastFruitWasSpawned = appRunTime;
-        spawnFruit();
+    if (!GameController::getInstance()->fruitOnLevel) {
+        fruitTimer += GameController::getInstance()->timeController->getDeltaTime();
+        if (fruitTimer > fruitInterval) {
+            fruitTimer = 0.0f;
+            spawnFruit();
+        }
     }
 }
 

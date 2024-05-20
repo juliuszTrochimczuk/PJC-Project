@@ -21,6 +21,7 @@ public:
     void update() override;
     void onDeath() override;
     void takeXP();
+    void healing(int amount);
 };
 
 #endif //PJC_PROJECT_PLAYER_H

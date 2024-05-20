@@ -1,7 +1,5 @@
 #include "GameController.h"
 #include <algorithm>
-#include <fmt/core.h>
-#include <iostream>
 
 GameController* GameController::instance = nullptr;
 
