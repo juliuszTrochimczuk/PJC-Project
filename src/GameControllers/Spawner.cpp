@@ -1,26 +1,33 @@
-#include "AISpawner.h"
+#include "Spawner.h"
 #include "GameController.h"
-#include <random>
 #include <fmt/core.h>
 
-void AISpawner::spawnEnemies() {
+void Spawner::spawnEnemies() {
     auto enemyIndex = MathMethods::drawRandomNumber(0, enemyPool.size());
-    auto enemyPosition = drawEnemyPosition();
+    auto enemyPosition = drawPositionOnMap();
     auto newEnemy = (*(enemyPool[enemyIndex])).makeCopy(enemyPosition);
     GameController::getInstance()->addEnemyEntity(newEnemy.get());
     GameController::getInstance()->addVisualEntity(newEnemy.get());
     GameController::getInstance()->addBasicEntity(std::move(newEnemy));
 }
 
-void AISpawner::update() {
+void Spawner::spawnFruit() {
+
+}
+
+void Spawner::update() {
     auto appRunTime =  GameController::getInstance()->timeController->getApplicationRuntime();
-    if (appRunTime - timeThatLastEnemyWasSpawned > interval and GameController::getInstance()->getEnemyEntities().size() < 5) {
+    if (appRunTime - timeThatLastEnemyWasSpawned > enemyInterval and GameController::getInstance()->getEnemyEntities().size() < 5) {
         timeThatLastEnemyWasSpawned = appRunTime;
         spawnEnemies();
     }
+    if (appRunTime - timeThatLastFruitWasSpawned > fruitInterval) {
+        timeThatLastFruitWasSpawned = appRunTime;
+        spawnFruit();
+    }
 }
 
-sf::Vector2<unsigned int> AISpawner::drawEnemyPosition() {
+sf::Vector2<unsigned int> Spawner::drawPositionOnMap() {
     auto pos = sf::Vector2<unsigned int>();
     pos.x = MathMethods::drawRandomNumber(
         GameController::getInstance()->map->leftUppMapCorner.x,

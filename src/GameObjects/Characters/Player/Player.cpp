@@ -4,16 +4,7 @@
 #include "SFML/Graphics.hpp"
 #include "fmt/core.h"
 
-Player::Player(float shapeRadius, int priority) : Character(shapeRadius, priority) {
-    auto texture = sf::Texture();
-    if (texture.loadFromFile("Assets/Player/player.png")) {
-        std::cout << texture.getSize().x;
-        std::cout << texture.getSize().y;
-        shape->setTexture(&texture);
-        shape->setTextureRect(sf::IntRect(0, 0, 512, 512));
-    }
-    else shape->setFillColor(sf::Color::Green);
-
+Player::Player(float shapeRadius, int priority) : Character("Assets/Player/player.png", shapeRadius, priority) {
     spawnPosition = GameController::getInstance()->gameWindow->getSize();
     spawnPosition.x = spawnPosition.x / 2;
     spawnPosition.y = spawnPosition.y / 2;

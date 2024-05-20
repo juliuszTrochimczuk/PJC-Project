@@ -5,6 +5,7 @@
 
 class Map : public VisualEntity {
 private:
+    sf::Texture texture;
     sf::RectangleShape correctShape;
 public:
     sf::Vector2<float> mapSize = sf::Vector2<float>(1800, 900);

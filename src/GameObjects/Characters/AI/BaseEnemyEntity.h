@@ -16,11 +16,13 @@ protected:
     const float speed;
     const float maxDistanceToPlayer;
     const float intervalBetweenAction;
+    const std::string pathToTexture;
 
     virtual bool canAttack() { return distanceToPlayer <= maxDistanceToPlayer; }
     virtual void attack() { }
 public:
-    BaseEnemyEntity(int health, int damage, float speed, float maxDistanceToPlayer, float intervalBetweenAction, float shapeRadius, int priority);
+    BaseEnemyEntity(int health, int damage, float speed, float maxDistanceToPlayer, float intervalBetweenAction,
+                    std::string pathToTexture, float shapeRadius, int priority);
     virtual std::unique_ptr<BaseEnemyEntity> makeCopy(sf::Vector2<unsigned int> spawnPosition) const = 0;
     void update() override;
     void onDeath() override;

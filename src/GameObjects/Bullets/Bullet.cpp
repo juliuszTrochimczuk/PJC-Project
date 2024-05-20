@@ -19,7 +19,6 @@ void Bullet::update() {
     }
 }
 
-
 bool Bullet::isBulletOnMap() {
     auto position = shape->getPosition();
     return (position.x >= GameController::getInstance()->map->leftUppMapCorner.x and position.y >= GameController::getInstance()->map->leftUppMapCorner.y

@@ -5,6 +5,10 @@
 
 Map::Map(int priority) : VisualEntity(priority) {
     correctShape = sf::RectangleShape(sf::Vector2f(mapSize.x, mapSize.y));
+    if (texture.loadFromFile("Assets/Map/map.jpg")) {
+        correctShape.setTexture(&texture);
+        correctShape.setTextureRect(sf::IntRect(0, 0, texture.getSize().x, texture.getSize().y));
+    } else fmt::println("Something went wrong");
     auto origin = correctShape.getSize();
     origin.x /= 2;
     origin.y /= 2;

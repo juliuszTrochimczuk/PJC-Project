@@ -7,7 +7,7 @@ class EnemyBullet : public Bullet {
 public:
     EnemyBullet(sf::Vector2<unsigned int> spawnPos, float speed, int damage, sf::Vector2<float> moveDirection, int priority) :
         Bullet(spawnPos, speed, damage, moveDirection, priority) {
-        auto color = sf::Color(255, 140, 0); //Orange
+        auto color = sf::Color(255, 0, 0); //Orange
         getShape()->setFillColor(color);
     };
     void update() override;

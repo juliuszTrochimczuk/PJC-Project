@@ -34,8 +34,8 @@ add_executable(PJC_Project src/main.cpp
         src/GameObjects/VisualEntity.h
         src/GameObjects/Map/Map.cpp
         src/GameObjects/Map/Map.h
-        src/GameControllers/AISpawner.h
-        src/GameControllers/AISpawner.cpp
+        src/GameControllers/Spawner.h
+        src/GameControllers/Spawner.cpp
         src/GameObjects/Characters/AI/BaseEnemyEntity.cpp
         src/GameObjects/Characters/AI/BaseEnemyEntity.h
         src/GameObjects/Bullets/EnemyBullet.cpp
@@ -48,10 +48,10 @@ add_executable(PJC_Project src/main.cpp
         src/GameObjects/Characters/AI/Range/ShootingAI.h
         src/GameObjects/Bullets/PlayerBullet.cpp
         src/GameObjects/Bullets/PlayerBullet.h
-        src/GameObjects/Bullets/PlayerBullet.h
         src/GameObjects/Characters/Player/Weapon.cpp
         src/GameObjects/Characters/Player/Weapon.h
-        src/GameObjects/Characters/Player/Weapon.h
+        src/GameObjects/Fruit/Fruit.cpp
+        src/GameObjects/Fruit/Fruit.h
 )
 
 add_executable(TestScript testFile.cpp)

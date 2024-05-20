@@ -6,10 +6,12 @@
 #include "../VisualEntity.h"
 
 class Character : public VisualEntity {
+private:
+    sf::Texture texture;
 protected:
     int health;
     sf::CircleShape correctShape;
-    Character(float shapeRadius, int priority);
+    Character(std::string pathToTexture, float shapeRadius, int priority);
 public:
     int getHealth() const { return health; }
     void takeDamage(int amount);
