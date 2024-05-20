@@ -1,15 +1,24 @@
+#include <iostream>
 #include "Player.h"
 #include "../../../GameControllers/GameController.h"
 #include "SFML/Graphics.hpp"
 #include "fmt/core.h"
 
 Player::Player(float shapeRadius, int priority) : Character(shapeRadius, priority) {
-    shape->setFillColor(sf::Color::Green);
+    auto texture = sf::Texture();
+    if (texture.loadFromFile("Assets/Player/player.png")) {
+        std::cout << texture.getSize().x;
+        std::cout << texture.getSize().y;
+        shape->setTexture(&texture);
+        shape->setTextureRect(sf::IntRect(0, 0, 512, 512));
+    }
+    else shape->setFillColor(sf::Color::Green);
+
     spawnPosition = GameController::getInstance()->gameWindow->getSize();
     spawnPosition.x = spawnPosition.x / 2;
     spawnPosition.y = spawnPosition.y / 2;
     health = 100;
-    moveSpeed = 125.5f;
+    moveSpeed = 135.5f;
 }
 
 sf::Vector2<float> Player::getInputVector() {
@@ -39,10 +48,26 @@ void Player::moveCharacter() {
 }
 
 void Player::update() {
-    fmt::println("{}", getHealth());
     moveCharacter();
 }
 
 void Player::onDeath() {
     fmt::println("PLAYER HAS DIED");
+}
+
+void Player::takeXP() {
+    currentXP += 10;
+    if (currentXP >= xpBarrier) {
+        levelUp();
+        chooseNewWeapon();
+    }
+}
+
+void Player::levelUp() {
+    currentXP = currentXP - xpBarrier;
+    xpBarrier += (int)(xpBarrier * 1.5);
+}
+
+void Player::chooseNewWeapon() {
+    fmt::println("Get new weapon");
 }

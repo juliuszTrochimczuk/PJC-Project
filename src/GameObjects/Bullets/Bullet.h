@@ -13,7 +13,7 @@ private:
 protected:
     int damage;
 
-    void destroyBullet();
+    void bulletDeath();
 public:
     Bullet(sf::Vector2<unsigned int> spawnPos, float speed, int damage, sf::Vector2<float> moveDirection, int priority);
     void update() override;

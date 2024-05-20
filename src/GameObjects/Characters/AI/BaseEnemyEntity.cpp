@@ -26,7 +26,5 @@ void BaseEnemyEntity::move() {
 }
 
 void BaseEnemyEntity::onDeath() {
-    fmt::println("ENEMY HAS DIED");
+    GameController::getInstance()->player->takeXP();
 }
-
-

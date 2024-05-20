@@ -14,7 +14,7 @@ void AISpawner::spawnEnemies() {
 
 void AISpawner::update() {
     auto appRunTime =  GameController::getInstance()->timeController->getApplicationRuntime();
-    if (appRunTime - timeThatLastEnemyWasSpawned > interval and GameController::getInstance()->getEnemyEntities().size() < 1) {
+    if (appRunTime - timeThatLastEnemyWasSpawned > interval and GameController::getInstance()->getEnemyEntities().size() < 5) {
         timeThatLastEnemyWasSpawned = appRunTime;
         spawnEnemies();
     }

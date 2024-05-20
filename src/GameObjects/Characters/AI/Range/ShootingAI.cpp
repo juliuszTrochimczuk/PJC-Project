@@ -13,5 +13,4 @@ void ShootingAI::attack() {
         GameController::getInstance()->addVisualEntity(bullet.get());
         GameController::getInstance()->addBasicEntity(std::move(bullet));
     }
-    fmt::println("I'm shooting now");
 }
