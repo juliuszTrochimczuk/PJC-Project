@@ -16,9 +16,17 @@ Fruit::Fruit(sf::Vector2<unsigned int> spawnPos, int priority) : VisualEntity(pr
 }
 
 void Fruit::update() {
-    if (correctShape.getGlobalBounds().intersects(GameController::getInstance()->player->getShape()->getGlobalBounds())) {
-        GameController::getInstance()->player->healing(10);
-        GameController::getInstance()->fruitOnLevel = false;
-        priority = -150;
+    if (GameController::getInstance()->getPlayer()->isDead) {
+        onDeath();
+        return;
     }
+    if (correctShape.getGlobalBounds().intersects(GameController::getInstance()->getPlayer()->getShape()->getGlobalBounds())) {
+        GameController::getInstance()->getPlayer()->healing(10);
+        onDeath();
+    }
+}
+
+void Fruit::onDeath() {
+    GameController::getInstance()->fruitOnLevel = false;
+    priority = -150;
 }

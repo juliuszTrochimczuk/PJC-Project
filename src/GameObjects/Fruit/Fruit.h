@@ -11,6 +11,7 @@ private:
 public:
     Fruit(sf::Vector2<unsigned int> spawnPos, int priority);
     void update() override;
+    void onDeath();
 };
 
 

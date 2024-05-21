@@ -13,7 +13,7 @@ Map::Map(int priority) : VisualEntity(priority) {
     origin.x /= 2;
     origin.y /= 2;
     correctShape.setOrigin(origin);
-    spawnPosition = GameController::getInstance()->gameWindow->getSize();
+    spawnPosition = GameController::getInstance()->getGameWindow()->getSize();
     spawnPosition.x = spawnPosition.x / 2;
     spawnPosition.y = spawnPosition.y / 2;
     shape = &correctShape;
@@ -21,7 +21,7 @@ Map::Map(int priority) : VisualEntity(priority) {
 
 void Map::start() {
     VisualEntity::start();
-    auto screenSize = sf::Vector2<float>(GameController::getInstance()->gameWindow->getSize());
+    auto screenSize = sf::Vector2<float>(GameController::getInstance()->getGameWindow()->getSize());
     auto centerPointOfScreen = screenSize;
     centerPointOfScreen.x /= 2;
     centerPointOfScreen.y /= 2;

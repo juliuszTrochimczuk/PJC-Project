@@ -4,8 +4,8 @@
 
 void EnemyBullet::update() {
     Bullet::update();
-    if (shape->getGlobalBounds().intersects(GameController::getInstance()->player->getShape()->getGlobalBounds())) {
+    if (shape->getGlobalBounds().intersects(GameController::getInstance()->getPlayer()->getShape()->getGlobalBounds())) {
         bulletDeath();
-        GameController::getInstance()->player->takeDamage(damage);
+        GameController::getInstance()->getPlayer()->takeDamage(damage);
     }
 }

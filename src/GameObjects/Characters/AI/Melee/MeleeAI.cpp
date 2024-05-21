@@ -3,5 +3,5 @@
 #include <fmt/core.h>
 
 void MeleeAI::attack() {
-    GameController::getInstance()->player->takeDamage(damage);
+    GameController::getInstance()->getPlayer()->takeDamage(damage);
 }

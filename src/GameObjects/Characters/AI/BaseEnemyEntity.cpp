@@ -8,8 +8,12 @@ BaseEnemyEntity::BaseEnemyEntity(int health, int damage, float speed, float maxD
 }
 
 void BaseEnemyEntity::update() {
-    distanceToPlayer = MathMethods::vector2Distance(shape->getPosition(), GameController::getInstance()->player->getShape()->getPosition());
-    auto appRunTime = GameController::getInstance()->timeController->getApplicationRuntime();
+    if (GameController::getInstance()->getPlayer()->isDead) {
+        Character::onDeath();
+        return;
+    }
+    distanceToPlayer = MathMethods::vector2Distance(shape->getPosition(), GameController::getInstance()->getPlayer()->getShape()->getPosition());
+    auto appRunTime = GameController::getInstance()->getTimeController()->getApplicationRuntime();
     if (distanceToPlayer > maxDistanceToPlayer)
         move();
     if (appRunTime - timeLastMadeAttack > intervalBetweenAction and canAttack()) {
@@ -19,11 +23,12 @@ void BaseEnemyEntity::update() {
 }
 
 void BaseEnemyEntity::move() {
-    auto directionToPlayer = GameController::getInstance()->player->getShape()->getPosition() - shape->getPosition();
+    auto directionToPlayer = GameController::getInstance()->getPlayer()->getShape()->getPosition() - shape->getPosition();
     directionToPlayer = MathMethods::vector2Normalize(directionToPlayer);
-    shape->move(directionToPlayer * speed * GameController::getInstance()->timeController->getDeltaTime());
+    shape->move(directionToPlayer * speed * GameController::getInstance()->getTimeController()->getDeltaTime());
 }
 
 void BaseEnemyEntity::onDeath() {
-    GameController::getInstance()->player->takeXP();
+    Character::onDeath();
+    GameController::getInstance()->getPlayer()->takeXP();
 }

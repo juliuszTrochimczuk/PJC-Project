@@ -14,8 +14,8 @@ protected:
     Character(std::string pathToTexture, float shapeRadius, int priority);
 public:
     int getHealth() const { return health; }
-    void takeDamage(int amount);
-    virtual void onDeath() = 0;
+    virtual void takeDamage(int amount);
+    virtual void onDeath();
 };
 
 #endif //PJC_PROJECT_CHARACTER_H

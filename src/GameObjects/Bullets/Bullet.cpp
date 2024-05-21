@@ -13,7 +13,11 @@ Bullet::Bullet(sf::Vector2<unsigned int> spawnPos, float speed, int damage, sf::
 }
 
 void Bullet::update() {
-    shape->move(moveDirection * speed * GameController::getInstance()->timeController->getDeltaTime());
+    if (GameController::getInstance()->getPlayer()->isDead) {
+        bulletDeath();
+        return;
+    }
+    shape->move(moveDirection * speed * GameController::getInstance()->getTimeController()->getDeltaTime());
     if (!isBulletOnMap()) {
         bulletDeath();
     }
@@ -21,8 +25,8 @@ void Bullet::update() {
 
 bool Bullet::isBulletOnMap() {
     auto position = shape->getPosition();
-    return (position.x >= GameController::getInstance()->map->leftUppMapCorner.x and position.y >= GameController::getInstance()->map->leftUppMapCorner.y
-        and position.x <= GameController::getInstance()->map->rightDownMapCorner.x and position.y <= GameController::getInstance()->map->rightDownMapCorner.y);
+    return (position.x >= GameController::getInstance()->getMap()->leftUppMapCorner.x and position.y >= GameController::getInstance()->getMap()->leftUppMapCorner.y
+        and position.x <= GameController::getInstance()->getMap()->rightDownMapCorner.x and position.y <= GameController::getInstance()->getMap()->rightDownMapCorner.y);
 }
 
 void Bullet::bulletDeath() {

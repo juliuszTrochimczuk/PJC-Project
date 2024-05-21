@@ -7,7 +7,8 @@ Weapon::Weapon(std::vector<sf::Vector2<float>> shootingPoints, float interval, f
                bulletDamage(bulletDamage) { }
 
 void Weapon::update() {
-    auto appRunTime = GameController::getInstance()->timeController->getApplicationRuntime();
+    if (GameController::getInstance()->getPlayer()->isDead) return;
+    auto appRunTime = GameController::getInstance()->getTimeController()->getApplicationRuntime();
     if (appRunTime - timeLastShoot > interval) {
         timeLastShoot = appRunTime;
         shoot();
@@ -15,7 +16,7 @@ void Weapon::update() {
 }
 
 void Weapon::shoot() {
-    auto const& playerShape = GameController::getInstance()->player->getShape();
+    auto const& playerShape = GameController::getInstance()->getPlayer()->getShape();
     for (auto& direction : shootingPoints) {
         auto spawnPosition = sf::Vector2<unsigned int>();
         spawnPosition.x = static_cast<unsigned int>(playerShape->getPosition().x);

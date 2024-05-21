@@ -15,8 +15,10 @@ Character::Character(std::string pathToTexture, float shapeRadius, int priority)
 
 void Character::takeDamage(int amount) {
     health -= amount;
-    if (health <= 0) {
+    if (health <= 0)
         onDeath();
-        priority = -100;
-    }
+}
+
+void Character::onDeath() {
+    priority = -100;
 }

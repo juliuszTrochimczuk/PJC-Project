@@ -4,7 +4,7 @@
 #include <fmt/core.h>
 
 void Spawner::spawnEnemies() {
-    auto enemyIndex = MathMethods::drawRandomNumber(0, enemyPool.size());
+    auto enemyIndex = MathMethods::drawRandomNumber(0, enemyPool.size() - 1);
     auto enemyPosition = drawPositionOnMap();
     auto newEnemy = (*(enemyPool[enemyIndex])).makeCopy(enemyPosition);
     GameController::getInstance()->addEnemyEntity(newEnemy.get());
@@ -19,16 +19,38 @@ void Spawner::spawnFruit() {
     GameController::getInstance()->fruitOnLevel = true;
 }
 
+void Spawner::spawnBoss() {
+    auto enemyPosition = drawPositionOnMap();
+    auto newBoss = (*(enemyPool[enemyPool.size() - 1])).makeCopy(enemyPosition);
+    GameController::getInstance()->addEnemyEntity(newBoss.get());
+    GameController::getInstance()->addVisualEntity(newBoss.get());
+    GameController::getInstance()->addBasicEntity(std::move(newBoss));
+    GameController::getInstance()->bossOnArena = true;
+}
+
 void Spawner::update() {
+    if (GameController::getInstance()->getPlayer()->isDead) {
+        enemyTimer = 0;
+        bossTimer = 0;
+        fruitTimer = 0;
+        return;
+    }
     if (GameController::getInstance()->getEnemyEntities().size() < 5) {
-        enemyTimer += GameController::getInstance()->timeController->getDeltaTime();
+        enemyTimer += GameController::getInstance()->getTimeController()->getDeltaTime();
         if (enemyTimer > enemyInterval) {
             enemyTimer = 0.0f;
             spawnEnemies();
         }
     }
+    if (!GameController::getInstance()->bossOnArena) {
+        bossTimer += GameController::getInstance()->getTimeController()->getDeltaTime();
+        if (bossTimer > bossInterval) {
+            bossTimer = 0.0f;
+            spawnBoss();
+        }
+    }
     if (!GameController::getInstance()->fruitOnLevel) {
-        fruitTimer += GameController::getInstance()->timeController->getDeltaTime();
+        fruitTimer += GameController::getInstance()->getTimeController()->getDeltaTime();
         if (fruitTimer > fruitInterval) {
             fruitTimer = 0.0f;
             spawnFruit();
@@ -39,12 +61,12 @@ void Spawner::update() {
 sf::Vector2<unsigned int> Spawner::drawPositionOnMap() {
     auto pos = sf::Vector2<unsigned int>();
     pos.x = MathMethods::drawRandomNumber(
-        GameController::getInstance()->map->leftUppMapCorner.x,
-        GameController::getInstance()->map->rightDownMapCorner.x
+        GameController::getInstance()->getMap()->leftUppMapCorner.x,
+        GameController::getInstance()->getMap()->rightDownMapCorner.x
     );
     pos.y = MathMethods::drawRandomNumber(
-            GameController::getInstance()->map->leftUppMapCorner.y,
-            GameController::getInstance()->map->rightDownMapCorner.y
+            GameController::getInstance()->getMap()->leftUppMapCorner.y,
+            GameController::getInstance()->getMap()->rightDownMapCorner.y
     );
     return pos;
 }

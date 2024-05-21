@@ -52,6 +52,10 @@ add_executable(PJC_Project src/main.cpp
         src/GameObjects/Characters/Player/Weapon.h
         src/GameObjects/Fruit/Fruit.cpp
         src/GameObjects/Fruit/Fruit.h
+        src/GameObjects/Characters/AI/Melee/TeleportingAI.cpp
+        src/GameObjects/Characters/AI/Melee/TeleportingAI.h
+        src/GameObjects/UI/UI.cpp
+        src/GameObjects/UI/UI.h
 )
 
 add_executable(TestScript testFile.cpp)

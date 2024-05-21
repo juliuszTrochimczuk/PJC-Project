@@ -104,7 +104,7 @@ void GameController::removeFromVisualEntities() {
 void GameController::removeFromEnemyEntities() {
     if (enemyEntities.size() == 0) return;
     auto eIter = enemyEntities.size() - 1;
-    while (enemyEntities.size() != 0 and enemyEntities[eIter] -> getHealth() < 1) {
+    while (enemyEntities.size() != 0 and (enemyEntities[eIter]->getHealth() < 1 || enemyEntities[eIter]->priority < 0)) {
         enemyEntities.pop_back();
         eIter--;
     }
