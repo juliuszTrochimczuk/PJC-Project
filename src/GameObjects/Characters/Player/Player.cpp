@@ -77,7 +77,7 @@ void Player::healing(int amount) {
 
 void Player::revivePlayer() {
     isDead = false;
-    health = 0;
+    health = 100;
     activeShootingPoints = 0;
     currentXP = 0;
     xpBarrier = 20;
